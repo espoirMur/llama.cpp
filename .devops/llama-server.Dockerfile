@@ -24,5 +24,4 @@ COPY --from=build /app/llama-server /llama-server
 ENV LC_ALL=C.utf8
 
 HEALTHCHECK CMD [ "curl", "-f", "http://localhost:8080/health" ]
-
-ENTRYPOINT [ "/.execute-llama-server.sh" ]
+ENTRYPOINT [ "/llama-server" ]
