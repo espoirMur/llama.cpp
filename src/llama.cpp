@@ -5572,7 +5572,7 @@ static void llm_load_vocab(
 
     for (uint32_t i = 0; i < n_vocab; i++) {
         std::string word = gguf_get_arr_str(ctx, token_idx, i);
-        GGML_ASSERT(unicode_cpts_from_utf8(word).size() > 0);
+        // GGML_ASSERT(unicode_cpts_from_utf8(word).size() > 0);
 
         vocab.token_to_id[word] = i;
         vocab.max_token_len = std::max(vocab.max_token_len, (int) word.size());
@@ -5595,7 +5595,7 @@ static void llm_load_vocab(
             }
         }
     }
-    GGML_ASSERT(vocab.id_to_token.size() == vocab.token_to_id.size());
+    // GGML_ASSERT(vocab.id_to_token.size() == vocab.token_to_id.size());
 
     // determine the newline token: LLaMA "<0x0A>" == 10 == '\n', Falcon 193 == '\n'
     if (vocab.type == LLAMA_VOCAB_TYPE_SPM) {

@@ -28,4 +28,4 @@ ENV LC_ALL=C.utf8
 
 HEALTHCHECK CMD [ "curl", "-f", "http://localhost:8080/health" ]
 
-ENTRYPOINT [ "/llama-server" ]
+ENTRYPOINT [ "bash" ]
