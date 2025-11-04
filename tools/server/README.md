@@ -372,7 +372,7 @@ node index.js
 
 ## API Endpoints
 
-### GET `/health`: Returns heath check result
+### GET `/ping`: Returns heath check result
 
 This endpoint is public (no API key check).
 

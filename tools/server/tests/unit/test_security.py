@@ -6,6 +6,7 @@ server = ServerPreset.tinyllama2()
 
 TEST_API_KEY = "sk-this-is-the-secret-key"
 
+
 @pytest.fixture(autouse=True)
 def create_server():
     global server
@@ -13,7 +14,7 @@ def create_server():
     server.api_key = TEST_API_KEY
 
 
-@pytest.mark.parametrize("endpoint", ["/health", "/models"])
+@pytest.mark.parametrize("endpoint", ["/ping", "/models"])
 def test_access_public_endpoint(endpoint: str):
     global server
     server.start()

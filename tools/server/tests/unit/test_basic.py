@@ -14,7 +14,7 @@ def create_server():
 def test_server_start_simple():
     global server
     server.start()
-    res = server.make_request("GET", "/health")
+    res = server.make_request("GET", "/ping")
     assert res.status_code == 200
 
 

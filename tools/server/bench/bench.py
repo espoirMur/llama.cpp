@@ -161,7 +161,7 @@ def main(args_in: list[str] | None = None) -> None:
                 # Mermaid format in case images upload failed
                 with open(f"{metric}.mermaid", 'w') as mermaid_f:
                     mermaid = (
-                    f"""---
+                        f"""---
 config:
     xyChart:
         titleFontSize: 12
@@ -309,7 +309,7 @@ def is_server_listening(server_fqdn, server_port):
 
 
 def is_server_ready(server_fqdn, server_port):
-    url = f"http://{server_fqdn}:{server_port}/health"
+    url = f"http://{server_fqdn}:{server_port}/ping"
     response = requests.get(url)
     return response.status_code == 200
 

@@ -222,7 +222,7 @@ class ServerProcess:
         start_time = time.time()
         while time.time() - start_time < timeout_seconds:
             try:
-                response = self.make_request("GET", "/health", headers={
+                response = self.make_request("GET", "/ping", headers={
                     "Authorization": f"Bearer {self.api_key}" if self.api_key else None
                 })
                 if response.status_code == 200:
@@ -383,7 +383,6 @@ class ServerProcess:
             response = self.make_request(method, path, data, headers, timeout=timeout)
             assert response.status_code == 200, f"Server returned error: {response.status_code}"
             return response.body
-
 
 
 server_instances: Set[ServerProcess] = set()

@@ -73,7 +73,7 @@ def get_server(path_server: str, path_log: Optional[str]) -> dict:
             exit_code = process.poll()
             if exit_code is not None:
                 raise RuntimeError(f"llama.cpp server exited unexpectedly with exit code {exit_code}{path_log and f', see {path_log.format(port=port)}' or ''}")
-            response = requests.get(f"{address}/health")
+            response = requests.get(f"{address} /ping
             if response.status_code == 200:
                 break
         except requests.ConnectionError:
